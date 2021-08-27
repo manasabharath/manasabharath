@@ -1,6 +1,6 @@
 State management is the process by which you maintain state and page information over multiple requests for the same or different pages.
 
-Client Side State Management:
+**Client Side State Management:**
 To maintain the state of values on the client’s machine, we use the client-side state management techniques.
 1.View State:
 The view state property provides an object for retaining values between multiple requests for the same page. it can be defined as ViewState[“Viewstate_variable_name”]
