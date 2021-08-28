@@ -13,7 +13,7 @@ The main property  of hyperlink control is NavigateUrl. The NavigateUrl property
 </asp:HyperLink>
 
 __2.Cross-page posting:__
-It is similar to hyperlink but the target page is invoked using HTTP POST command. It is used to send values from the source page to the target page. It posts current page information to the target page. The post information is available in the target page.Redirects to any page, not just pages in the same Web application.<br/>
+It is used to send values from the source page to the target page. It posts current page information to the target page and that information is available in the target page.By default, when you click a button,the webform posts to itself. if you want to post to another webform on a button click,set the postback url of the button,to the page that you want to post to.<br/>
 protected void Page_Load(object sender, EventArgs e)<br/>
     {<br/>
         if (Page.PreviousPage != null)<br/>
