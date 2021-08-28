@@ -27,7 +27,7 @@ protected void Page_Load(object sender, EventArgs e)<br/>
     }
     
 __3.Client-side browser redirect:__
-The Page.Response object has redirect method. The Response.Redirect method redirects a request to a new URL. It instructs the browser to initiate a request for another Web page. The browser issues new request to the target server in the form of HTTP GET request. The redirection can be achieved by changing the client script or the server code. In the client script, add form.submit method for redirecting the data.In the server code. User can redirect by adding Redirect method. It is equivalent to the hyperlink control in the application.<br/>
+Response.Redirect() will send you to a new page, update the address bar and add it to the Browser History. On your browser you can click back.It redirects the request to some plain HTML pages on our server or to some other web server.It causes additional roundtrips to the server on each request..<br/>
 protected void Button1_Click(object sender, EventArgs e)<br/>
     {<br/>
         Response.Redirect("TutorialRide.aspx");<br/>
