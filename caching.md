@@ -74,9 +74,14 @@ Retrieving test item.<br/>
 Test item is: 14-07-2010 01:25:04<br/>
 
 **Configuration Caching** : Application wide configuration information is stored in a configuration file. Configuration caching stores the configuration information in the server memory.<br/>
-<outputCacheSettings><br/>
-  <outputCacheProfiles><br/>
-    <add name="CacheProfile1" duration="60" /><br/>
-  </outputCacheProfiles><br/>
+<outputCacheSettings>
+  <outputCacheProfiles>
+    <add name="CacheProfile1" duration="60" />
+  </outputCacheProfiles>
 </outputCacheSettings><br/>
+
+**Validation Groups**:<br/>
+Complex pages have different groups of information provided in different panels. In such situation, a need might arise for performing validation separately for separate group. This kind of situation is handled using validation groups.
+
+To create a validation group, you should put the input controls and the validation controls into the same logical group by setting their ValidationGroup property.
 
