@@ -15,7 +15,6 @@ Output Caching:<br/>
 * Syntax: <%@ OutputCache Duration="15" VaryByParam="None" %><br/>
 * protected void Page_Load(object sender, EventArgs e)<br/>
 {<br/>
-   Thread.Sleep(10000);  <br/>
    Response.Write("This page was generated and cache at:" +<br/>
    DateTime.Now.ToString());<br/>
 }
@@ -32,4 +31,52 @@ EnableCaching - It specifies whether or not to cache the data.<br/>
 
 **Object Caching**.<br/><br/>
 Object caching provides more flexibility than other cache techniques. You can use object caching to place any object in the cache. The object can be of any type - a data type, a web control, a class, a dataset object, etc. The item is added to the cache simply by assigning a new key name, shown as follows Like:<br/>
-Cache["key"] = item;
+Cache["key"] = item;<br/>
+example<br/>
+Sliding expiration is used to remove an item from the cache when it is not used for the specified time span. The following code snippet stores an item with a sliding expiration of 10 minutes with no dependencies.<br/>
+protected void Page_Load(object sender, EventArgs e)<br/>
+{<br/>
+   if (this.IsPostBack)<br/>
+   {<br/>
+      lblinfo.Text += "Page Posted Back.<br/>";
+   }<br/>
+   else<br/>
+   {<br/>
+      lblinfo.Text += "page Created.<br/>";<br/>
+   }<br/>
+   
+   if (Cache["testitem"] == null)<br/>
+   {<br/>
+      lblinfo.Text += "Creating test item.<br/>";<br/>
+      DateTime testItem = DateTime.Now;<br/>
+      lblinfo.Text += "Storing test item in cache ";<br/>
+      lblinfo.Text += "for 30 seconds.<br/>";<br/>
+      Cache.Insert("testitem", testItem, null, <br/>
+      DateTime.Now.AddSeconds(30), TimeSpan.Zero);<br/>
+   }<br/>
+   else<br/>
+   {<br/>
+      lblinfo.Text += "Retrieving test item.<br/>";<br/>
+      DateTime testItem = (DateTime)Cache["testitem"];<br/>
+      lblinfo.Text += "Test item is: " + testItem.ToString();<br/>
+      lblinfo.Text += "<br/>";<br/>
+   }<br/>
+      
+   lblinfo.Text += "<br/>";<br/>
+}<br/>
+
+output:<br/>
+Page Created.<br/>
+Creating test item.<br/>
+Storing test item in cache for 30 seconds.<br/>
+Page Posted Back.<br/>
+Retrieving test item.<br/>
+Test item is: 14-07-2010 01:25:04<br/>
+
+**Configuration Caching** : Application wide configuration information is stored in a configuration file. Configuration caching stores the configuration information in the server memory.<br/>
+<outputCacheSettings><br/>
+  <outputCacheProfiles><br/>
+    <add name="CacheProfile1" duration="60" /><br/>
+  </outputCacheProfiles><br/>
+</outputCacheSettings><br/>
+
