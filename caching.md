@@ -12,6 +12,13 @@ Output Caching:<br/>
 * Output Cache directive enables Output Caching.<br/>
 * For a specific duration data is reterived from Cache.<br/>
 * Substitution control always take data from server even if Output Cache is set.<br/>
+* Syntax: <%@ OutputCache Duration="15" VaryByParam="None" %><br/>
+* protected void Page_Load(object sender, EventArgs e)<br/>
+{<br/>
+   Thread.Sleep(10000);  <br/>
+   Response.Write("This page was generated and cache at:" +<br/>
+   DateTime.Now.ToString());<br/>
+}
 
 **Data Caching**:<br/><br/>
 This is the most flexible type of caching but requires some code to implement. The basic principle is that you add items that are expensive to create to a special built-in collection object (called cache), which is globally available.<br/>
