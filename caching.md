@@ -33,7 +33,7 @@ EnableCaching - It specifies whether or not to cache the data.<br/>
 Object caching provides more flexibility than other cache techniques. You can use object caching to place any object in the cache. The object can be of any type - a data type, a web control, a class, a dataset object, etc. The item is added to the cache simply by assigning a new key name, shown as follows Like:<br/>
 Cache["key"] = item;<br/>
 example<br/>
-Sliding expiration is used to remove an item from the cache when it is not used for the specified time span. The following code snippet stores an item with a sliding expiration of 10 minutes with no dependencies.<br/>
+
 protected void Page_Load(object sender, EventArgs e)<br/>
 {<br/>
    if (this.IsPostBack)<br/>
