@@ -1,4 +1,4 @@
-**Both View Data and view Bag are used to pass data from a controller to a view and Both View data and viewbag does not provide compile time error checking**<br/>
+**Both View Data and view Bag are used to pass data from a controller to a view and Both it is does not provide compile time error checking**<br/>
 ## ViewData
 * ViewData is derived from the ViewDataDictionary class and is basically a Dictionary object
 * Data is stored as Object in ViewData.
